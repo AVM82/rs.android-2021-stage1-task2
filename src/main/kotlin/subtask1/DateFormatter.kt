@@ -12,7 +12,7 @@ class DateFormatter {
                 isLenient = false
                 set(year.toInt(), month.toInt() - 1, day.toInt())
             }
-            val dateFormat = SimpleDateFormat("dd MMMM, EEEE")
+            val dateFormat = SimpleDateFormat("dd MMMM, EEEE", Locale("ru"))
             dateFormat.format(calendar.time)
         } catch (e: Exception) {
             "Такого дня не существует"
