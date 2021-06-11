@@ -1,9 +1,21 @@
 package subtask1
 
+import java.text.SimpleDateFormat
+import java.util.*
+
+
 class DateFormatter {
 
-    // TODO: Complete the following function
     fun toTextDay(day: String, month: String, year: String): String {
-        throw NotImplementedError("Not implemented")
+        return try {
+            val calendar = Calendar.getInstance(Locale("ru")).apply {
+                isLenient = false
+                set(year.toInt(), month.toInt() - 1, day.toInt())
+            }
+            val dateFormat = SimpleDateFormat("dd MMMM, EEEE")
+            dateFormat.format(calendar.time)
+        } catch (e: Exception) {
+            "Такого дня не существует"
+        }
     }
 }
